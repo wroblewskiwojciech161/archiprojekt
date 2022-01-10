@@ -5,7 +5,8 @@ import router from "./router";
 import store from "./store";
 import i18n from "./i18n";
 import vuetify from "./plugins/vuetify";
-
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 Vue.config.productionTip = false;
 
 new Vue({
@@ -14,4 +15,7 @@ new Vue({
   i18n,
   vuetify,
   render: (h) => h(App),
+  mounted() {
+    AOS.init()
+  },
 }).$mount("#app");

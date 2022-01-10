@@ -1,3 +1,32 @@
 {
-  "message": "hello i18n !!"
+  "header": {
+    "title": "Archiprojekt biuro projektowe",
+    "subtitle": "Radosław Wróblewski"
+  },
+  "contact": "Kontakt",
+  "call": "Zadzwoń",
+  "mail": "Napisz e-mail",
+  "officeLocalization": "Lokalizacja biura",
+  "offer": {
+    "checkout": "Zapoznaj się z ofertą biura Archiprojekt",
+    "offer": "Wybrane projekty oraz zakres oferowanych usług"
+  },
+  "sections": {
+    "one": {
+      "title": "Tytuł 1",
+      "subtitle": "Podtytuł 1",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+    },
+    "two": {
+      "title": "Tytuł 2",
+      "subtitle": "Podtytuł 2",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+    },
+    "three": {
+      "title": "Tytuł 3",
+      "subtitle": "Podtytuł 3",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+    }
+  },
+  "oldOffice": " stare biuro "
 }

@@ -1,0 +1,32 @@
+{
+    "header": {
+        "title": "Architectural design studio",
+        "subtitle": "Radosław Wróblewski"
+    },
+    "contact": "Contact",
+    "call": "Call me",
+    "mail": "Write an e-mail",
+    "officeLocalization": "Office localization",
+    "offer": {
+        "checkout": "Familiarize yourself with the Archiprojekt offer",
+        "offer": "Selected projects and the scope of services offered"
+    },
+    "sections": {
+        "one": {
+            "title": "Title 1",
+            "subtitle": "Subtitle 1",
+            "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+        },
+        "two": {
+            "title": "Title 2",
+            "subtitle": "Subtitle 2",
+            "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+        },
+        "three": {
+            "title": "Title 3",
+            "subtitle": "Subtitle 3",
+            "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting"
+        }
+    },
+    "oldOffice": " old office "
+}

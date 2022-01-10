@@ -1,78 +1,115 @@
 <template>
-  <v-app light>
-    <v-toolbar class="black">
-     <v-toolbar-side-icon><img :src="imageLink.logo" alt="Vuetify.js" height="100%"></v-toolbar-side-icon>
-      <v-toolbar-title class="mx-0" v-text="title"></v-toolbar-title>
-      <p>page under construction</p>
+  <div ref="start">
+    <v-toolbar class="ligth">
+      <v-toolbar-side-icon
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+        name="icon"
+        class="logo-wrapper"
+        ><img class="logo-image" src="../assets/logo.png" alt="Vuetify.js"
+      /></v-toolbar-side-icon>
+      <v-toolbar-side-icon
+        class="mx-0"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+        data-aos="fade-down-left"
+        v-text="title"
+      ></v-toolbar-side-icon>
       <v-spacer></v-spacer>
+
+      <v-icon right @click="goto('end')"> mdi-translate </v-icon>
+
+      <v-icon right @click="handleDarkMode"> mdi-theme-light-dark </v-icon>
     </v-toolbar>
-    <v-content>
+    <v-main>
       <section>
-        <v-parallax :src="imageLink.sub_main" height="600">
+        <v-parallax
+          src="https://images.unsplash.com/photo-1492091501265-be9af13d99fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          height="600"
+        >
           <v-layout column align-center justify-center class="white--text">
-            <h1 class="white--text mb-2 display-1 text-xs-center" style="font-weight: 900; text-shadow: 3px 2px #000000">Archiprojekt biuro projektowe</h1>
-            <div class="white--text subheading mb-3 text-xs-center" style="font-weight: 900; text-shadow: 2px 2px #000000">page under construction</div>
-            <v-btn class="blue lighten-2 mt-5" dark large href="/pre-made-themes">
-              Contact
+            <h1
+              class="white--text mb-2 display-1 title"
+              style="text-shadow: 3px 2px #000000"
+            >
+              {{ $t("header.title") }}
+            </h1>
+            <div
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+              data-aos-delay="1100"
+              class="white--text subheading mb-3 subtitle"
+              style="text-shadow: 2px 2px #000000"
+            >
+              {{ $t("header.subtitle") }}
+            </div>
+            <v-btn
+              class="dark lighten-2 mt-5"
+              dark
+              large
+              outlined
+              @click="goto('contact')"
+            >
+              {{ $t("contact") }}
             </v-btn>
           </v-layout>
         </v-parallax>
       </section>
 
       <section>
-        <v-layout
-          column
-          wrap
-          class="my-5"
-          align-center
-        >
-          <v-flex xs12 sm4 class="my-3">
-            <div class="text-xs-center">
-              <h2 class="headline">The best way to share your amazing stuff</h2>
-              <span class="subheading">
-                No more restrictions, no more limits
-              </span>
-            </div>
-          </v-flex>
+        <v-layout column wrap class="my-5" align-center>
           <v-flex xs12>
             <v-container grid-list-xl>
               <v-layout row wrap align-center>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">public</v-icon>
+                      <v-icon x-large class="text--lighten-2">{{
+                        $t("sections.one.title")
+                      }}</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Reach the world</div>
+                      <div class="headline text-xs-center">
+                        {{ $t("sections.one.subtitle") }}
+                      </div>
                     </v-card-title>
                     <v-card-text>
-                      Show your stuff to the whole community of Endorfine not only to your mum or your friends. We love making good content viral. In this moment Endorfine is used by artists who are not famous but that want to share their works to the world. Unfortunately with other social networks this is hard, slow and sometime expensive.
+                      {{ $t("sections.one.content") }}
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                      <v-icon x-large class="text--lighten-2">{{
+                        $t("sections.two.title")
+                      }}</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Fast feedback</div>
+                      <div class="headline">
+                        {{ $t("sections.two.subtitle") }}
+                      </div>
                     </v-card-title>
                     <v-card-text>
-                      Time is important, we don't want you to waste it. Here you can get a massive feedback from real users in minutes. And if your stuff is appreciated you won't only get positive feedback but also lovely and sincere fans 
+                      {{ $t("sections.two.content") }}
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">share</v-icon>
+                      <v-icon x-large class="text--lighten-2">{{
+                        $t("sections.three.title")
+                      }}</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Create new connections</div>
+                      <div class="headline text-xs-center">
+                        {{ $t("sections.three.subtitle") }}
+                      </div>
                     </v-card-title>
                     <v-card-text>
-                      Imagine if you can directly speak with the world's population. Don't you think it would be easier to find nice people to interact with? Endorfine is both local and global and help you to connect without limitations with people from your city, your state and your universe! 
+                      {{ $t("sections.three.content") }}
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -83,178 +120,234 @@
       </section>
 
       <section>
-        <v-parallax :src="imageLink.main" height="380">
+        <v-parallax
+          src="https://images.unsplash.com/photo-1529607697227-d616efef768f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          height="400"
+        >
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Endorfine is a social network that allows everyone to reach a huge audience with a tap </div>
-            <em>With the power of Endorfine you don't need to be famous or post pics of cute cats in order to get visibility</em>
-            <v-btn class="blue lighten-2 mt-5" dark large href="/pre-made-themes">
-              Get more info
-            </v-btn>
+            <div
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+              data-aos-delay="300"
+              class="headline white--text mb-3 text-xs-center"
+              style="font-size: 1.7rem !important"
+            >
+              {{ $t("offer.checkout") }}
+            </div>
+            <em
+              style="font-size: 1.3rem !important"
+              data-aos="zoom-in"
+              data-aos-duration="1500"
+              data-aos-delay="800"
+            >
+              {{ $t("offer.offer") }}
+            </em>
           </v-layout>
-        </v-parallax>
-      </section>
-
-       <section>
-        <v-container grid-list-md>
-
-        
-          <v-layout row wrap>
-          <v-flex xs12 text-xs-center class="mt-5">
-           <div class="headline">Are you amazed? Stay tuned!</div>
-           <br>
-          <div>We are lunching the beta in a few time. If you want to be one of the first Endorfine users we will email you as soon as we're ready. In the beginning only few people will test before the launch. Let us know how Endorfine will help you!</div>
-          </v-flex>
-          <v-flex xs8 offset-xs2>
-
-              <v-card class="elevation-0 transparent">
-
-                <v-card-text>
-                  <v-flex xs12 v-if="!subscribed">
-                    <v-text-field box label="Email address" :rules="emailRules" v-model="email" hint="Enter your email!" persistent-hint></v-text-field>
-                  </v-flex>
-                  <v-flex xs12 v-if="!subscribed">
-                    <v-text-field box multi-line label="Bio and curiosities"></v-text-field>
-                  </v-flex>
-                  <v-flex xs12 class="text-xs-center" v-if="!subscribed">
-                    <v-btn class="blue lighten-2 mb-5" dark large @click="subscribe">Get in touch</v-btn>
-                  </v-flex>
-                   <v-flex xs12 class="text-xs-center" v-if="subscribed">
-                    <v-btn class="green lighten-2 mb-5" dark large>Welcome on board!</v-btn>
-                  </v-flex>
-                </v-card-text>
-
-             </v-card>
-
-                </v-flex>
-            </v-layout>
-          </v-container>
-      </section>
-
-       <section>
-        <v-parallax :src="imageLink.social_cover" height="380">
-          <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">We are dropping cool news and opportunities on socials</div>
-          </v-layout>
-          <v-layout justify-space-around justify-center>
-
-              <v-icon x-large dark>fab fa-facebook-f</v-icon>
-
-              <v-icon x-large dark>fab fa-twitter</v-icon>
-
-              <v-icon x-large dark>fab fa-reddit-alien</v-icon>
-
-              <v-icon x-large dark>fab fa-instagram</v-icon>
-
-              <v-icon x-large dark>fab fa-discord</v-icon>
-            </v-layout>
         </v-parallax>
       </section>
 
       <section>
+        <v-container grid-list-md>
+          <v-layout row wrap>
+            <v-flex xs12 sm6 text-xs-center class="mt-5">
+              <div
+                class="headline"
+                data-aos="fade-right"
+                data-aos-duration="1000"
+                data-aos-delay="200"
+              >
+                Text
+              </div>
+              <br />
+              <div
+                data-aos="fade-right"
+                data-aos-duration="1200"
+                data-aos-delay="600"
+              >
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting
+              </div>
+            </v-flex>
+            <v-flex xs12 sm6 text-xs-center class="mt-5">
+              <!-- carousel -->
+              <carousel></carousel>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </section>
+
+      <!-- Section offer -->
+
+      <section>
+        <v-parallax
+          src="https://images.unsplash.com/photo-1526289034009-0240ddb68ce3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          height="380"
+        >
+          <v-layout column align-center justify-center>
+            <div class="headline white--text mb-3 text-xs-center">
+              <div
+                data-aos="zoom-in"
+                data-aos-duration="1500"
+                data-aos-delay="300"
+                class="white--text subheading mb-3"
+                style="
+                  font-size: 2rem !important;
+                  font-weight: 900;
+                  text-shadow: 2px 2px #000000;
+                "
+              >
+                {{ $t("contact") }}
+              </div>
+
+              <v-row>
+                <v-btn class="dark lighten-2 mt-5" dark large outlined>
+                  <a
+                    style="
+                      text-decoration: none;
+                      font-weight: 500;
+                      font-size: 0.9rem;
+                      color: white;
+                    "
+                    href="tel:1230"
+                    >{{ $t("call") }}</a
+                  >
+
+                  <v-icon dark right> mdi-cellphone </v-icon>
+                </v-btn>
+                <div style="width: 15px"></div>
+                <v-btn class="dark lighten-2 mt-5" dark large outlined>
+                  <a
+                    style="
+                      text-decoration: none;
+                      font-weight: 500;
+                      font-size: 0.9rem;
+                      color: white;
+                    "
+                    href="mailto:awd@awd.com"
+                    >{{ $t("mail") }}</a
+                  >
+                  <v-icon dark right> mdi-email </v-icon>
+                </v-btn></v-row
+              >
+            </div>
+          </v-layout>
+        </v-parallax>
+      </section>
+
+      <section ref="contact">
         <v-container grid-list-xl>
           <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm4>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
-                </v-card-title>
-                <v-card-text>
-                  We are not a company. We hate companies. Just imagine us like the guys from the Silicon Valley series. 
-                </v-card-text>
-              </v-card>
+            <v-flex
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="200"
+              xs12
+              sm4
+            >
+              <!-- Contact Component -->
+              <contact-component></contact-component>
             </v-flex>
-            <v-flex xs12 sm4 offset-sm1>
-              <v-card class="elevation-0 transparent">
+            <v-flex xs12 sm6 offset-sm1>
+              <v-card>
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">We are hiring</div>
+                  <div class="headline">{{ $t("officeLocalization") }}</div>
+                  <v-icon> mdi-office-building </v-icon>
                 </v-card-title>
                 <v-card-text>
-                  Are you a creative person? Do you like techy stuff? Complete the email form by writing your skills and interests
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1257.7842483426323!2d15.756531344844067!3d50.91319989944864!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc4b1917b238399ab!2sAzart-Sat.%20Telewizja%20kablowa!5e0!3m2!1spl!2spl!4v1641731988103!5m2!1spl!2spl"
+                    width="100%"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                  ></iframe>
                 </v-card-text>
               </v-card>
             </v-flex>
           </v-layout>
         </v-container>
       </section>
-
-       <section>
-        <v-container>
-          <v-layout>
-            <v-flex xs12 class="text-xs-center">
-                <img height="200px" :src="imageLink.logo">
-            </v-flex>
-          </v-layout>
-        </v-container>
-     </section>
-
-    
-
-
-      <v-footer class="blue darken-2">
-        <v-layout row wrap align-center>
-          <v-flex xs12 class="text-xs-center">
-            <div class="white--text ml-3">
-              Made with
-              <v-icon class="red--text">favorite</v-icon>
-              using <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-footer>
-
-    </v-content>
-</v-app>
+    </v-main>
+    <div ref="end" @click="goto('start')">
+      <footer-component></footer-component>
+    </div>
+  </div>
 </template>
 
 <script>
+import Carousel from "../components/molecules/Carousel.vue";
+import FooterComponent from "../components/organisms/FooterComponent.vue";
+import ContactComponent from "../components/organisms/Contact.vue";
 export default {
+  components: { FooterComponent, Carousel, ContactComponent },
   name: "App",
-  data: function() {
+  data: function () {
     return {
       title: "Archiprojekt",
       imageLink: {
-        main:
-          "https://firebasestorage.googleapis.com/v0/b/endorfinevue.appspot.com/o/assets%2Fb13f0434-b228-11e6-8e5d-5252025056ab_web_scale_0.4666667_0.4666667__.jpg?alt=media&token=660df23e-599e-434b-9313-ba69c973eeea",
+        main: "https://images.unsplash.com/photo-1547915619-476e582d2609?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
         sub_main:
-          "https://firebasestorage.googleapis.com/v0/b/endorfinevue.appspot.com/o/assets%2FNight-Club-Clubbing-Jobs-Abroad2.jpg?alt=media&token=82bbda7d-5df4-430b-9217-adaf1c8485c5",
-        logo:
-          "https://firebasestorage.googleapis.com/v0/b/endorfinevue.appspot.com/o/assets%2Fandroid-chrome-512x512.png?alt=media&token=8a0a66f6-4741-4ff6-8f28-eb9ec74374df",
+          "https://images.unsplash.com/photo-1547915619-476e582d2609?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        logo: "@assets/logo.png",
         social_cover:
-          "https://firebasestorage.googleapis.com/v0/b/endorfinevue.appspot.com/o/assets%2Fo-NIGHTCLUB-facebook.jpg?alt=media&token=cefc5c4c-9714-41da-9c22-f63caf5e89a4"
+          "https://images.unsplash.com/photo-1547915619-476e582d2609?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       },
       email: "",
       emailRules: [
-        v => {
+        (v) => {
           return !!v || "E-mail is required";
         },
-        v =>
+        (v) =>
           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          "E-mail must be valid"
+          "E-mail must be valid",
       ],
-      subscribed: false
+      subscribed: false,
     };
   },
   methods: {
-    subscribe: function() {
-      this.subscribed = !this.subscribed;
-    }
+    goto(refName) {
+      var element = this.$refs[refName];
+      var top = element.offsetTop;
+
+      window.scroll({
+        top: top,
+        behavior: "smooth",
+      });
+    },
+    handleDarkMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      window.localStorage.setItem("dark_mode", this.$vuetify.theme.dark);
+    },
   },
 
   computed: {
-    imgHeight: function() {
+    imgHeight: function () {
       var offset = 320;
-      console.log("new image height is " + (this.pageHeight - offset));
       return this.pageHeight - offset;
-    }
+    },
   },
 
-  mounted: function() {
-    this.calculateHeight();
-  }
+  mounted: function () {
+    this.$vuetify.theme.dark = JSON.parse(
+      window.localStorage.getItem("dark_mode")
+    );
+  },
 };
 </script>
 
 <style scoped>
+.logo-wrapper {
+  height: 100%;
+}
+.logo-image {
+  height: 100%;
+  width: auto;
+}
 .finedTitle {
   font-weight: 900;
   text-shadow: 2px 2px #000000;
@@ -263,5 +356,29 @@ export default {
 .social-icon {
   font-size: 21px;
   color: white;
+}
+
+.title {
+  font-size: 3rem !important ;
+  margin-bottom: 7rem !important;
+}
+.subtitle {
+  font-size: 1.8rem !important ;
+}
+.text {
+  font-size: 1.1rem !important ;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem !important ;
+    margin-bottom: 4.5rem !important;
+  }
+  .subtitle {
+    font-size: 1.3rem !important ;
+  }
+  .text {
+    font-size: 1rem !important ;
+  }
 }
 </style>
